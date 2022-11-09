@@ -243,6 +243,11 @@
         <!-- These plugin settings only apply to this single POM and are not inherited
             to any submodules. -->
         <plugins>
+            <!-- Enforce our version of Java, Maven, dependencies, etc. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+            </plugin>
             <!-- Specify our settings for new releases via 'mvn release:*' -->
             <plugin>
                 <artifactId>maven-release-plugin</artifactId>
