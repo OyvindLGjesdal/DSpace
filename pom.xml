@@ -65,7 +65,6 @@
                               <goal>enforce</goal>
                           </goals>
                           <configuration>
-                              <fail>false</fail>
                               <rules>
                                   <DependencyConvergence />
                               </rules>
@@ -209,6 +208,11 @@
       <!-- These plugin settings only apply to this single POM and are not inherited
            to any submodules. -->
       <plugins>
+          <!-- Enforce our version of Java, Maven, dependencies, etc. -->
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-enforcer-plugin</artifactId>
+          </plugin>
          <!-- Ensure that any *.properties files have UTF-8 chars encoded (e.g. "\u00e9") *before* using them to filter dspace.cfg and other configs -->
          <plugin>
            <artifactId>maven-antrun-plugin</artifactId>
