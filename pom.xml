@@ -51,6 +51,7 @@
                               <goal>enforce</goal>
                           </goals>
                           <configuration>
+                              <fail>false</fail>
                               <rules>
                                   <requireJavaVersion>
                                       <version>${java.version}</version>
