@@ -43,6 +43,7 @@
                   <groupId>org.apache.maven.plugins</groupId>
                   <artifactId>maven-enforcer-plugin</artifactId>
                   <version>1.4.1</version>
+
                   <executions>
                       <execution>
                           <id>enforce-java</id>
@@ -64,6 +65,7 @@
                               <goal>enforce</goal>
                           </goals>
                           <configuration>
+                              <fail>false</fail>
                               <rules>
                                   <DependencyConvergence />
                               </rules>
@@ -71,6 +73,8 @@
                       </execution>
                   </executions>
               </plugin>
+
+      
               <plugin>
                   <artifactId>maven-compiler-plugin</artifactId>
                   <version>3.1</version>
@@ -198,10 +202,7 @@
                   <artifactId>maven-gpg-plugin</artifactId>
                   <version>1.6</version>
               </plugin>
-              <plugin>
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-enforcer-plugin</artifactId>
-              </plugin>
+
           </plugins>
       </pluginManagement>
 
@@ -306,11 +307,7 @@
                     </execution>
                 </executions>
          </plugin>
-          <!-- Enforce our version of Java, Maven, dependencies, etc. -->
-          <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-enforcer-plugin</artifactId>
-          </plugin>
+
       </plugins>
    </build>
    
@@ -426,41 +423,7 @@
                         </executions>
                         <inherited>false</inherited>
                     </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-enforcer-plugin</artifactId>
-                        <version>1.4.1</version>
-
-                        <executions>
-                            <execution>
-                                <id>enforce-java</id>
-                                <goals>
-                                    <goal>enforce</goal>
-                                </goals>
-                                <configuration>
-                                    <rules>
-                                        <requireJavaVersion>
-                                            <version>${java.version}</version>
-                                        </requireJavaVersion>
-                                    </rules>
-                                </configuration>
-                            </execution>
-                            <!-- Make sure that we do not have conflicting dependencies-->
-                            <execution>
-                                <id>enforce-versions</id>
-                                <goals>
-                                    <goal>enforce</goal>
-                                </goals>
-                                <configuration>
-                                    <fail>false</fail>
-                                    <rules>
-                                        <DependencyConvergence />
-                                    </rules>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
+                   </plugins>
             </build>
         </profile>
 
